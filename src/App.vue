@@ -9,10 +9,34 @@ const loaded = ref(false);
 const data = ref({});
 const availableForShow = ref(false);
 
+const preloadedImages = ref({});
+
 provide('data', data);
 
 function loaderHandler() {
   availableForShow.value = true;
+}
+
+async function preloadImages() {
+  return new Promise(async resolve => {
+    const response = await fetch('https://eugevin.com/api/images');
+    const responseData = await response.json();
+
+    preloadedImages.value = { total: responseData.length, loaded: 0 };
+  
+    responseData.forEach((data: any) => {
+      const image = new Image();
+      image.src = data;
+
+      image.onload = () => {
+        preloadedImages.value.loaded += 1;      
+
+        if (preloadedImages.value.loaded === preloadedImages.value.total - 1) {
+          resolve(true);
+        }
+      }
+    });
+  });
 }
 
 onMounted(async () => {
@@ -20,7 +44,9 @@ onMounted(async () => {
   const responseData = await response.json();
 
   data.value = responseData;
-  
+
+  await preloadImages();
+
   loaded.value = true;
 });
 </script>
