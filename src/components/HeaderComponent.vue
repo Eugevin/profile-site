@@ -65,6 +65,7 @@ function routeHandler(to: string) {
     easing: 'easeInOutQuart',
     duration: 1000,
     complete: () => {
+      window.scrollTo(0, 0);
       menuHandler();
       router.push(to);
     },
