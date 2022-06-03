@@ -73,12 +73,13 @@ onMounted(() => {
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-5 d-flex justify-content-center">
-          <h2 class="mock">My clients</h2>
+          <h2 class="mock">My jobs</h2>
         </div>
         <div class="col-lg-6">
-          <ul class="about__clients">
+          <p>Proudly served some by me:</p>
+          <ul class="about__jobs">
             <li :style="`background-image: url(${data.logo});`" v-for="item in data.about.clients" :key="item.title" class="mock">
-              <img :src="item.image" alt="Client image" class="about__story__description">
+              <img :src="item.image" alt="Client image" class="about__job__description">
             </li>
           </ul>
         </div>
@@ -158,7 +159,8 @@ onMounted(() => {
     }
   }
 
-  &__clients {
+  &__jobs {
+    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
