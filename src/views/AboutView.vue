@@ -59,8 +59,8 @@ onMounted(() => {
     <div class="container-fluid">
       <div class="row justify-content-center">
         <div class="col-lg-10">
-          <div class="about__fullwidth">
-            <img class="mock" :src="data.about.fullwidth" alt="About fullwidth">
+          <div class="about__fullwidth mock">
+            <img :src="data.about.fullwidth" alt="About fullwidth">
           </div>
         </div>
       </div>
@@ -157,14 +157,10 @@ onMounted(() => {
     }
   }
 
-  &__fullwidth {
-    overflow: hidden;
-
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
+  &__fullwidth img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
   &__services {
