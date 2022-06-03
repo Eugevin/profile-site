@@ -2,39 +2,12 @@
 import InnerComponent from '@/components/InnerComponent.vue';
 import ButtonComponent from '@/components/ButtonComponent.vue';
 import { inject, onMounted } from 'vue';
+import observer from '@/helpers/observer';
 
-const anime = inject('anime');
 const data = inject('data');
 
-function observerCallback(entries, observer) {
-  entries.forEach(entry => {
-    const entryActivated = entry.target.classList.contains('mock_activated');
-    if (entry.isIntersecting && !entryActivated) {
-      anime({
-        targets: entry.target,
-        translateY: ['100%', 0],
-        scale: [1.1, 1],
-        opacity: [0, 1],
-        easing: 'easeInOutQuart',
-        duration: 1000,
-      });
-
-      entry.target.classList.add('mock_activated');
-    }
-  });
-}
-
 onMounted(() => {
-  const mockEls = document.querySelectorAll('.mock');
-
-  let options = {
-    root: document.querySelector('#scrollArea'),
-    rootMargin: '0px',
-    threshold: 0.5
-  }
-
-  let observer = new IntersectionObserver(observerCallback, options);
-  mockEls.forEach(mock => observer.observe(mock));
+  observer();
 });
 </script>
 
