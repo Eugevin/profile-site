@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import observer from '../helpers/observer';
-import hideContent from '../helpers/hideContent';
+import observer from '@/helpers/observer';
+import hideContent from '@/helpers/hideContent';
 import InputComponent from '../components/InputComponent.vue';
 import InnerComponent from '../components/InnerComponent.vue';
 
 const pageReady = ref(false);
-const project = ref(null);
+const project: any = ref(null);
 const router = useRouter();
 const route = useRoute();
 
@@ -18,7 +18,7 @@ async function backHandler() {
 
 function showPage() {
   pageReady.value = true;
-  observer();
+  setTimeout(() => observer());
 }
 
 onMounted(async () => {
@@ -43,7 +43,10 @@ onMounted(async () => {
       <div class="row">
         <div class="col-lg-5"></div>
         <div class="col-lg-6">
-          <InputComponent @change="backHandler" type="button">Back</InputComponent>
+          <div class="project__description">
+            <p v-for="item in project.body" :key="item" class="mock">{{ item }}</p>
+          </div>
+          <InputComponent class="mock" @change="backHandler" type="button">Back</InputComponent>
         </div>
       </div>
     </div>
@@ -54,5 +57,11 @@ onMounted(async () => {
 .project {
   position: relative;
   padding-bottom: 100px;
+
+  &__description {
+    p {
+      margin-bottom: 20px;
+    }
+  }
 }
 </style>
