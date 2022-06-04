@@ -6,8 +6,7 @@ function observerCallback(entries, observer) {
     if (entry.isIntersecting && !entryActivated) {
       anime({
         targets: entry.target,
-        translateY: ['100%', 0],
-        scale: [1.1, 1],
+        translateY: ['10%', 0],
         opacity: [0, 1],
         easing: 'easeInOutQuart',
         duration: 1000,
