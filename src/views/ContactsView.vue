@@ -81,7 +81,7 @@ async function formHandler() {
             <h5>Email</h5>
             <InputComponent type="button" @change="mailHandler">Mail me</InputComponent>
           </div>
-          <h5>Get in touch</h5>
+          <h5>Get in touch (min for name = 2 symbols, min for message = 50 symbols)</h5>
           <form @submit.prevent="formHandler" class="contacts__form">
             <InputComponent v-for="(field, fieldName) in formData" :key="fieldName"
               :placeholder="fieldName" :name="fieldName"
