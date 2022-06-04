@@ -139,6 +139,8 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+@import '@/assets/vars';
+
 .header {
   background: #00000090;
   display: flex;
@@ -172,6 +174,10 @@ onMounted(() => {
         border: 1px solid #ffffff50;
       }
     }
+
+    @media screen and (max-width: $breakpoint-phone) {
+      flex-direction: column-reverse;
+    }
   }
 
   &__inner {
@@ -195,6 +201,11 @@ onMounted(() => {
 
       &:hover {
         border: 1px solid #ffffff50;
+      }
+
+      @media screen and (max-width: $breakpoint-phone) {
+        top: unset;
+        bottom: 0;
       }
     }
 
