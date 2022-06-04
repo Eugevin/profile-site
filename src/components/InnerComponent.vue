@@ -54,10 +54,10 @@ onMounted(() => {
     </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-5 d-flex justify-content-center align-items-center">
+        <div class="col-md-5 d-flex justify-content-center align-items-center">
           <img class="inner__logo" :src="data.logo" alt="Eugevin logo">
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-6">
           <p class="inner__suptitle">{{ suptitle }}</p>
           <h1 class="inner__title">{{ title }}</h1>
         </div>
@@ -67,9 +67,11 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+@import '@/assets/vars';
+
 .inner {
-  margin-bottom: 100px;
-  padding-bottom: 70px;
+  margin-bottom: 6.25rem;
+  padding-bottom: 4.375rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -94,6 +96,12 @@ onMounted(() => {
 
   .container-fluid {
     z-index: 1;
+  }
+
+  @media screen and (max-width: $breakpoint-phone) {
+    &__logo {
+      margin: 0 auto 3.75rem 0;
+    }
   }
 }
 </style>

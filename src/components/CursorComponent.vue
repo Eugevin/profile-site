@@ -17,6 +17,8 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+@import '@/assets/vars';
+
 .cursor {
   position: fixed;
   z-index: 100;
@@ -27,5 +29,9 @@ onMounted(() => {
   border-radius: 100%;
   transition: .3s linear;
   backdrop-filter: invert(1);
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    display: none;    
+  }
 }
 </style>

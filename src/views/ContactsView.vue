@@ -74,10 +74,10 @@ onMounted(() => {
     <InnerComponent :suptitle="data.contacts.inner.suptitle" :title="data.contacts.inner.title" :background="data.contacts.inner.bg" />
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-5 d-flex justify-content-center">
+        <div class="col-md-5 d-flex justify-content-center">
           <h2 class="mock">Let’s work together</h2>
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-6">
           <div class="contacts__social mock">
             <h5>Telegram</h5>
             <InputComponent type="button" @change="telegramHandler">Write me</InputComponent>
@@ -102,15 +102,17 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+@import '@/assets/vars';
+
 .contacts {
   position: relative;
-  padding-bottom: 100px;
+  padding-bottom: 6.25rem;
 
   &__social {
-    margin-bottom: 80px;
+    margin-bottom: 5rem;
 
     h5 {
-      margin-bottom: 20px;
+      margin-bottom: 1.25rem;
     }
   }
 
@@ -154,6 +156,31 @@ onMounted(() => {
       left: 0;
       height: 100%;
       width: 100%;
+    }
+
+    @media screen and (max-width: $breakpoint-laptop) {
+      grid-template-areas: 
+        "name email"
+        "message message"
+        "submit null";
+    }
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      grid-template-areas: 
+        "name"
+        "email"
+        "message"
+        "submit";
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-phone) {
+    .col-md-5 {
+      justify-content: flex-start !important;
+
+      h2 {
+        margin-bottom: 2rem;
+      }
     }
   }
 }

@@ -64,59 +64,66 @@ onMounted(async () => {
 @import './assets/reset.css';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+/* === VARS === */
+
+@import '@/assets/vars';
+
+/* === MAIN === */
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+html {
   font-family: 'Poppins', 'Arial', sans-serif;
   font-weight: 400;
+  font-size: 16px;
 }
 
 h1 {
   font-weight: 600;
-  font-size: 46px;
-  line-height: 60px;
+  font-size: 2.875rem;
+  line-height: 3.75rem;
   color: #FFFFFF;
 }
 
 h2 {
   font-weight: 600;
-  font-size: 36px;
-  line-height: 60px;
+  font-size: 2.25rem;
+  line-height: 3.75rem;
   color: #FFFFFF;
 }
 
 h3 {
   font-weight: 600;
-  font-size: 30px;
-  line-height: 46px;
+  font-size: 1.875rem;
+  line-height: 2.875rem;
   color: #FFFFFF;
 }
 
 h4 {
   font-weight: 600;
-  font-size: 24px;
-  line-height: 36px;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
   color: #FFFFFF;
 }
 
 h5 {
   font-weight: 600;
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 1.125rem;
+  line-height: 1.875rem;
   color: #FFFFFF;
 }
 
 blockquote {
-  padding: 15px 0 15px 30px;
+  padding: 0.938rem 0 0.938rem 1.875rem;
   font-weight: 600;
-  font-size: 14px;
-  line-height: 26px;
+  font-size: 0.875rem;
+  line-height: 1.625rem;
   color: #FFFFFF;
-  border-left: 6px solid #212121;
+  border-left: 0.375rem solid #212121;
 }
 
 .mock {
@@ -124,13 +131,13 @@ blockquote {
 }
 
 p {
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 1rem;
+  line-height: 1.875rem;
   color: #A6A6A6;  
 
   .light {
-    font-size: 12px;
-    line-height: 22px;
+    font-size: 0.75rem;
+    line-height: 1.375rem;
     color: #666666;    
   }
 }
@@ -148,6 +155,22 @@ main {
     height: 100%;
     width: 40%;
     background: #212121;
+  }
+}
+
+@media screen and (max-width: $breakpoint-laptop) {
+  html {
+    font-size: 12px;
+  }  
+}
+
+@media screen and (max-width: $breakpoint-phone) {
+  html {
+    font-size: 10px;
+  }
+
+  main::before {
+    content: none;
   }
 }
 </style>

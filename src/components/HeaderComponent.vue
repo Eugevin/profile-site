@@ -186,8 +186,8 @@ onMounted(() => {
       position: absolute;
       top: 0;
       right: 0;
-      width: 100px;
-      height: 100px;
+      width: 6.25rem;
+      height: 6.25rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -207,7 +207,7 @@ onMounted(() => {
             cursor: pointer;
             opacity: 0;
             display: block;
-            margin-bottom: 25px;
+            margin-bottom: 1.563rem;
 
             h1 {
               transition: .7s ease;
@@ -224,7 +224,7 @@ onMounted(() => {
 
     &__logo {
       display: block;
-      margin: 140px auto 0;
+      margin: 8.75rem auto 0;
     }
 
     a {

@@ -24,10 +24,10 @@ onMounted(() => {
     <InnerComponent :suptitle="data.about.inner.suptitle" :title="data.about.inner.title" :background="data.about.inner.bg" />
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-5 d-flex justify-content-center">
+        <div class="col-md-5 d-flex justify-content-center">
           <h2 class="mock">My short story</h2>
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-6">
           <ul class="about__story">
             <li v-for="item in data.about.history" :key="item.date" class="mock">
               <h5 class="about__story__date">{{ item.date }}</h5>
@@ -39,7 +39,7 @@ onMounted(() => {
     </div>
     <div class="container-fluid">
       <div class="row justify-content-center">
-        <div class="col-lg-10">
+        <div class="col-md-10">
           <div class="about__fullwidth mock">
             <img :src="data.about.fullwidth" alt="About fullwidth">
           </div>
@@ -48,10 +48,10 @@ onMounted(() => {
     </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-5 d-flex justify-content-center">
+        <div class="col-md-5 d-flex justify-content-center">
           <h2 class="mock">My services</h2>
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-6">
             <p>I combine design, technology and business strategy into a unified discipline powerful enough to propel companies forward.</p>
           <ul class="about__services">
             <li v-for="item in data.about.services" :key="item.title" class="mock">
@@ -65,10 +65,10 @@ onMounted(() => {
     </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-5 d-flex justify-content-center">
+        <div class="col-md-5 d-flex justify-content-center">
           <h2 class="mock">Why me</h2>
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-6">
           <ul class="about__why">
             <li v-for="item in data.about.why" :key="item.title" class="mock">
               <h5 class="about__why__date">{{ item.title }}</h5>
@@ -80,10 +80,10 @@ onMounted(() => {
     </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-5 d-flex justify-content-center">
+        <div class="col-md-5 d-flex justify-content-center">
           <h2 class="mock">My jobs</h2>
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-6">
           <p>Proudly served some by me:</p>
           <ul class="about__jobs">
             <li :style="`background-image: url(${data.logo});`" v-for="item in data.about.clients" :key="item.title" class="mock">
@@ -95,9 +95,9 @@ onMounted(() => {
     </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-5 d-flex justify-content-center">
+        <div class="col-md-5 d-flex justify-content-center">
         </div>
-        <div class="col-lg-6 mock">
+        <div class="col-md-6 mock">
           <h3 class="about__contact">Whatever your needs, i’re looking forward to hearing from you</h3>
           <InputComponent @change="contactHandler" type="button">Contact Me</InputComponent>
         </div>
@@ -107,13 +107,15 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+@import '@/assets/vars';
+
 .about {
   position: relative;
-  padding-bottom: 100px;
+  padding-bottom: 6.25rem;
 
   &__story {
     li:not(:first-of-type) {
-      margin-top: 30px;
+      margin-top: 1.875rem;
     }
 
     li:hover .about__story__date::before {
@@ -121,7 +123,7 @@ onMounted(() => {
     }
 
     &__date {
-      padding-left: 38px;
+      padding-left: 2.375rem;
       position: relative;
 
       &::before {
@@ -130,8 +132,8 @@ onMounted(() => {
         top: 50%;
         left: 0;
         transform: translateY(-50%);
-        height: 16px;
-        width: 16px;
+        height: 1rem;
+        width: 1rem;
         border-radius: 100%;
         background: #212121;
         transition: .7s ease;
@@ -147,35 +149,34 @@ onMounted(() => {
 
   &__services {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
     li {
       border: 1px solid #141414;
-      padding: 53px 18px 24px;
+      padding: 3.313rem 1.125rem 1.5rem;
     }
 
     &__title {
-      margin: 32px 0 12px;
+      margin: 2rem 0 0.813rem;
     }
   }
 
   &__why {
     li:not(:first-of-type) {
-      margin-top: 30px;
+      margin-top: 1.875rem;
     }
   }
 
   &__jobs {
-    margin-top: 20px;
+    margin-top: 1.25rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
     li {
       background: url('') no-repeat center / 10%;
       border: 1px solid #141414;
-      height: 140px;
 
       img {
         height: 100%;
@@ -187,8 +188,7 @@ onMounted(() => {
 
   &__contact {
     text-align: center;
-    margin: 0 auto 20px;
-    max-width: 600px;
+    margin: 0 auto 1.25rem;
 
     + button {
       margin: auto;
@@ -196,7 +196,17 @@ onMounted(() => {
   }
 
   .container-fluid {
-    margin-top: 70px;
+    margin-top: 4.375rem;
+  }
+
+  @media screen and (max-width: $breakpoint-phone) {
+    .col-md-5 {
+      justify-content: flex-start !important;
+      
+      h2 {
+        margin-bottom: 2rem;
+      }
+    }    
   }
 }
 </style>

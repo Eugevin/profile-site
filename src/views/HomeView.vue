@@ -50,17 +50,17 @@ onMounted(() => {
   <div class="home">
     <div class="container-fluid">
       <div class="row justify-content-md-center">
-        <div class="col-lg-6">
+        <div class="col-xl-6 col-md-8">
           <div class="home__banner image-mock">
             <img :src="data.home.banner" alt="Home banner">
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-5 d-flex justify-content-center align-items-center">
+        <div class="col-md-5 d-flex justify-content-center align-items-center">
           <img :src="data.logo" alt="Eugevin logo" class="home__logo">
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-6">
           <p class="home__suptitle">{{ data.home.suptitle }}</p>
           <h1 class="home__title">{{ data.home.title }}</h1>
         </div>
@@ -70,18 +70,27 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+@import '@/assets/vars';
+
 .home {
+  padding: 5rem 0 6.25rem;
   position: relative;
 
   &__banner {
-    margin: 80px 0 70px;
+    margin-bottom: 4.375rem;
     overflow: hidden;
-    height: 530px;
+    height: 33.125rem;
 
     img {
       height: 100%;
       width: 100%;
       object-fit: cover;
+    }
+  }
+
+  &__logo {
+    @media screen and (max-width: $breakpoint-phone) {
+      margin: 0 auto 3.75rem 0;
     }
   }
 

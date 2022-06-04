@@ -25,10 +25,10 @@ function inputHandler() {
 <style lang="scss">
 input {
   font-family: "Poppins", "Arial", sans-serif;
-  padding: 5px 0;
+  padding: 0.313rem 0;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 1rem;
+  line-height: 1.875rem;
   color: #A6A6A6;
   background: none;
   outline: none;
@@ -45,15 +45,16 @@ input {
 button {
   font-family: "Poppins", "Arial", sans-serif;
   display: block;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14px;
-  line-height: 26px;
+  font-size: 0.875rem;
+  line-height: 1.625rem;
   text-align: center;
   color: #A6A6A6;
   background: none;
   outline: none;
+  border: none;
   border-bottom: 2px solid #666666;
   transition: .7s ease;
 

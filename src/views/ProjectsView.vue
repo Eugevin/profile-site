@@ -32,15 +32,17 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+@import '@/assets/vars';
+
 .projects {
   position: relative;
-  padding-bottom: 100px;
+  padding-bottom: 6.25rem;
 
   &__item {
     overflow: hidden;
     cursor: pointer;
     position: relative;
-    height: 360px;
+    height: 22.5rem;
     background: #1D86FF;
 
     &__title {
@@ -91,7 +93,15 @@ onMounted(() => {
   .inner + .container-fluid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 100px;
+    gap: 6.25rem;
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(2, 1fr);      
+    }
+
+    @media screen and (max-width: $breakpoint-phone) {
+      grid-template-columns: 1fr;      
+    }
   }
 }
 </style>
