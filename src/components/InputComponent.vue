@@ -8,10 +8,10 @@ function changeHandler(e: any) {
 </script>
 
 <template>
-  <input v-if="type === 'input'" type="text">
-  <button @click="changeHandler" v-else>
+  <button v-if="type === 'button'" @click="changeHandler">
     <slot />
   </button>
+  <input v-else type="text">
 </template>
 
 <style lang="scss">

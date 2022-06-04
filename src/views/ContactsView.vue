@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { inject } from 'vue';
 import InnerComponent from '../components/InnerComponent.vue';
-import Button from '../components/ButtonComponent.vue';
+import InputComponent from '@/components/InputComponent.vue';
 
 const data = inject('data');
 
@@ -25,11 +25,11 @@ function mailHandler() {
         <div class="col-lg-6">
           <div class="contacts__social">
             <h5>Telegram</h5>
-            <Button @change="telegramHandler">Write me</Button>
+            <InputComponent type="button" @change="telegramHandler">Write me</InputComponent>
           </div>
           <div class="contacts__social">
             <h5>Email</h5>
-            <Button @change="mailHandler">Mail me</Button>
+            <InputComponent type="button" @change="mailHandler">Mail me</InputComponent>
           </div>
           <form class="contacts__form">
             <h5>Get in touch</h5>

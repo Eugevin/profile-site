@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import InnerComponent from '@/components/InnerComponent.vue';
-import ButtonComponent from '@/components/ButtonComponent.vue';
+import InputComponent from '@/components/InputComponent.vue';
 import { inject, onMounted } from 'vue';
 import observer from '@/helpers/observer';
 
@@ -91,7 +91,7 @@ onMounted(() => {
         </div>
         <div class="col-lg-6 mock">
           <h3 class="about__contact">Whatever your needs, i’re looking forward to hearing from you</h3>
-          <ButtonComponent>Contact Me</ButtonComponent>
+          <InputComponent type="button">Contact Me</InputComponent>
         </div>
       </div>
     </div>
