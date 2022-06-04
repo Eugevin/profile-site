@@ -35,7 +35,8 @@ function menuHandler() {
   if (menuActive.value) {
     anime({
       targets: '.header',
-      translateX: [0, '95%'],
+      translateX: [0, '100%'],
+      right: [0, '100px'],
       easing: 'easeInOutQuart',
       duration: 1000,
     });
@@ -45,7 +46,8 @@ function menuHandler() {
 
   anime({
     targets: '.header',
-    translateX: ['95%', 0],
+    translateX: ['100%', 0],
+    right: ['100px', 0],
     easing: 'easeInOutQuart',
     duration: 1000,
   });
@@ -86,18 +88,18 @@ function innerHandler() {
 onMounted(() => {
   anime({
     targets: '.header',
-    translateX: ['100%', '95%'],
+    translateX: ['110%', '100%'],
     opacity: [0, 1],
     easing: 'easeInOutQuart',
     duration: 1000,
-    delay: 2000,
+    delay: 1000,
   });
   anime({
     targets: '.header__visible__button',
     opacity: [0, 1],
     easing: 'easeInOutQuart',
     duration: 1000,
-    delay: (el, i) => 2000 + 500 * i,
+    delay: (el, i) => 1500 + 500 * i,
   });
 });
 </script>
@@ -143,7 +145,7 @@ onMounted(() => {
   z-index: 98;
   position: fixed;
   top: 0;
-  right: 0;
+  right: 100px;
   height: 100vh;
   width: calc(100% + 100px);
   transform: translateX(95%);
