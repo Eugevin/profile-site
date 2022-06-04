@@ -34,6 +34,15 @@ const router = createRouter({
       name: 'contacts',
       component: () => import('../views/ContactsView.vue')
     },
+    {
+      path: '/404',
+      name: 'error',
+      component: () => import('../views/ErrorView.vue')
+    },
+    {
+      path: "/:catchAll(.*)",
+      redirect: '/404'
+    },
   ]
 })
 

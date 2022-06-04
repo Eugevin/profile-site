@@ -32,6 +32,7 @@ onMounted(async () => {
     showPage();
   } catch (e) {
     console.error(e);
+    router.push('/404');
   }
 });
 </script>
