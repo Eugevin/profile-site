@@ -46,7 +46,7 @@ onMounted(() => {
       bottom: 0;
       right: 0;
       display: inline-block;
-      transform: rotate(-90deg) translate(50px, 0);
+      transform: translate(-10%);
     }
 
     &__more {
