@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { inject, onMounted } from 'vue';
-import observer from '../helpers/observer';
+import observer from '@/helpers/observer';
+import hideContent from '@/helpers/hideContent';
 import InnerComponent from '../components/InnerComponent.vue';
 import { useRouter } from 'vue-router';
 
 const data: any = inject('data');
 const router = useRouter();
 
-function projectHandler(projectName: string) {
-  router.push(`/project/${projectName}`);
+async function projectHandler(projectName: string) {
+  await hideContent();
+  router.push(`/project?name=${projectName}`);
 }
 
 onMounted(() => {
