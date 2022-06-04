@@ -3,8 +3,16 @@ import InnerComponent from '@/components/InnerComponent.vue';
 import InputComponent from '@/components/InputComponent.vue';
 import { inject, onMounted } from 'vue';
 import observer from '@/helpers/observer';
+import hideContent from '@/helpers/hideContent';
+import { useRouter } from 'vue-router';
 
-const data = inject('data');
+const data: any = inject('data');
+const router = useRouter();
+
+async function contactHandler() {
+  await hideContent();
+  router.push('/contacts');
+}
 
 onMounted(() => {
   observer();
@@ -91,7 +99,7 @@ onMounted(() => {
         </div>
         <div class="col-lg-6 mock">
           <h3 class="about__contact">Whatever your needs, i’re looking forward to hearing from you</h3>
-          <InputComponent type="button">Contact Me</InputComponent>
+          <InputComponent @change="contactHandler" type="button">Contact Me</InputComponent>
         </div>
       </div>
     </div>
