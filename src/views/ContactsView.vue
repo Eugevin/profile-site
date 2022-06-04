@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { inject, ref } from 'vue';
+import { inject, onMounted, ref } from 'vue';
 import InnerComponent from '../components/InnerComponent.vue';
 import InputComponent from '@/components/InputComponent.vue';
+import observer from '@/helpers/observer';
 
 const anime: any = inject('anime');
 const data: any = inject('data');
@@ -62,6 +63,10 @@ async function formHandler() {
     console.error(e);
   }
 }
+
+onMounted(() => {
+  observer();
+});
 </script>
 
 <template>
@@ -70,19 +75,19 @@ async function formHandler() {
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-5 d-flex justify-content-center">
-          <h2>Let’s work together</h2>
+          <h2 class="mock">Let’s work together</h2>
         </div>
         <div class="col-lg-6">
-          <div class="contacts__social">
+          <div class="contacts__social mock">
             <h5>Telegram</h5>
             <InputComponent type="button" @change="telegramHandler">Write me</InputComponent>
           </div>
-          <div class="contacts__social">
+          <div class="contacts__social mock">
             <h5>Email</h5>
             <InputComponent type="button" @change="mailHandler">Mail me</InputComponent>
           </div>
-          <h5>Get in touch (min for name = 2 symbols, min for message = 50 symbols)</h5>
-          <form @submit.prevent="formHandler" class="contacts__form">
+          <h5 class="mock">Get in touch (min for name = 2 symbols, min for message = 50 symbols)</h5>
+          <form @submit.prevent="formHandler" class="contacts__form mock">
             <InputComponent v-for="(field, fieldName) in formData" :key="fieldName"
               :placeholder="fieldName" :name="fieldName"
               @change="formDataHandler" />
