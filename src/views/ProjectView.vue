@@ -44,7 +44,7 @@ onMounted(async () => {
         <div class="col-lg-5"></div>
         <div class="col-lg-6">
           <div class="project__description">
-            <p v-for="item in project.body" :key="item" class="mock">{{ item }}</p>
+            <div v-for="item in project.body" :key="item" class="mock" v-html="item"></div>
           </div>
           <InputComponent class="mock" @change="backHandler" type="button">Back</InputComponent>
         </div>
@@ -59,7 +59,7 @@ onMounted(async () => {
   padding-bottom: 100px;
 
   &__description {
-    p {
+    > div {
       margin-bottom: 20px;
     }
   }

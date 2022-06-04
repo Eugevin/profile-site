@@ -110,6 +110,15 @@ h5 {
   color: #FFFFFF;
 }
 
+blockquote {
+  padding: 15px 0 15px 30px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 26px;
+  color: #FFFFFF;
+  border-left: 6px solid #212121;
+}
+
 .mock {
   opacity: 0;
 }
