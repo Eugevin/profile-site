@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { inject, onMounted, ref } from 'vue';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
+import hideContent from '@/helpers/hideContent';
 
 const router = useRouter();
 const route = useRoute();
-const anime = inject('anime');
-const data = inject('data');
+const anime: any = inject('anime');
+const data: any = inject('data');
 const menuActive = ref(false);
 const menuItems = ref([
   {
@@ -52,24 +53,15 @@ function menuHandler() {
   innerHandler();
 }
 
-function routeHandler(to: string) {
+async function routeHandler(to: string) {
   if (to === route.path) {
     menuHandler();
     return;
   }
-  
-  anime({
-    targets: 'main > div',
-    translateY: [0, '10%'],
-    opacity: [1, 0],
-    easing: 'easeInOutQuart',
-    duration: 1000,
-    complete: () => {
-      window.scrollTo(0, 0);
-      menuHandler();
-      router.push(to);
-    },
-  });
+
+  await hideContent();
+  menuHandler();
+  router.push(to);
 }
 
 function innerHandler() {
