@@ -110,9 +110,6 @@ onMounted(() => {
       <div @click="menuHandler" class="header__visible__button">
         <img src="@/assets/menu-button.svg" alt="Menu button">
       </div>
-      <div class="header__visible__button">
-        <img src="@/assets/menu-more.svg" alt="Menu more">
-      </div>
     </div>
     <div class="header__inner">
       <div class="container-fluid">
@@ -158,12 +155,12 @@ onMounted(() => {
     width: 6.25rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 
     &__button {
       cursor: pointer;
       display: flex;
-      height: 6.25rem;
+      height: 100%;
       transition: .3s ease;
 
       img {
@@ -193,7 +190,7 @@ onMounted(() => {
       top: 0;
       right: 0;
       width: 6.25rem;
-      height: 6.25rem;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -201,11 +198,6 @@ onMounted(() => {
 
       &:hover {
         border: 1px solid #ffffff50;
-      }
-
-      @media screen and (max-width: $breakpoint-phone) {
-        top: unset;
-        bottom: 0;
       }
     }
 
