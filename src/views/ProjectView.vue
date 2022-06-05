@@ -16,6 +16,10 @@ async function backHandler() {
   router.push('/projects');
 }
 
+function projectLinkHandler() {
+  window.open(project.value.link);
+}
+
 function showPage() {
   pageReady.value = true;
   setTimeout(() => observer());
@@ -44,6 +48,7 @@ onMounted(async () => {
       <div class="row">
         <div class="col-lg-5"></div>
         <div class="col-lg-6">
+          <InputComponent @change="projectLinkHandler" class="project__link mock" type="button">Open project</InputComponent>
           <div class="project__description">
             <div v-for="item in project.body" :key="item" class="mock" v-html="item"></div>
           </div>
@@ -57,11 +62,13 @@ onMounted(async () => {
 <style lang="scss">
 .project {
   position: relative;
-  padding-bottom: 100px;
+  padding-bottom: 6.25rem;
 
   &__description {
+    margin-top: 2rem;
+
     > div {
-      margin-bottom: 20px;
+      margin-bottom: 1.25rem;
     }
   }
 }
