@@ -54,7 +54,7 @@ async function formHandler() {
     }
 
     if (status === 400) {
-      formAlert.value = 'One or more of your fields are invalid. Please, check it all before clicking submit again.'
+      formAlert.value = 'One or more of fields are invalid. Please, check it all before clicking submit again. Make sure that your name is more than 1 symbol and message not less than 50 symbols!'
       return;
     }
 
@@ -78,12 +78,9 @@ onMounted(() => {
           <h2 class="mock">Let’s work together</h2>
         </div>
         <div class="col-md-6">
-          <div class="contacts__social mock">
-            <h5>Telegram</h5>
+          <div class="contacts__socials mock">
+            <h5>Write me in telegram or contact with mail</h5>
             <InputComponent type="button" @change="telegramHandler">Write me</InputComponent>
-          </div>
-          <div class="contacts__social mock">
-            <h5>Email</h5>
             <InputComponent type="button" @change="mailHandler">Mail me</InputComponent>
           </div>
           <h5 class="mock">Get in touch (min for name = 2 symbols, min for message = 50 symbols)</h5>
@@ -108,11 +105,14 @@ onMounted(() => {
   position: relative;
   padding-bottom: 6.25rem;
 
-  &__social {
+  &__socials {
     margin-bottom: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
 
     h5 {
-      margin-bottom: 1.25rem;
+      flex: 100%;
     }
   }
 
@@ -162,15 +162,15 @@ onMounted(() => {
       grid-template-areas: 
         "name email"
         "message message"
-        "submit null";
+        "submit alert";
     }
 
     @media screen and (max-width: $breakpoint-tablet) {
       grid-template-areas: 
-        "name"
-        "email"
-        "message"
-        "submit";
+        "name email"
+        "message message"
+        "submit null"
+        "alert alert";
     }
   }
 
