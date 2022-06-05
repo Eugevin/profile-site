@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { inject, onMounted, ref } from 'vue';
-import { RouterLink, useRoute, useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import hideContent from '@/helpers/hideContent';
 
 const router = useRouter();
@@ -36,7 +36,7 @@ function menuHandler() {
     anime({
       targets: '.header',
       translateX: [0, '100%'],
-      right: [0, '100px'],
+      right: [0, '6.25rem'],
       easing: 'easeInOutQuart',
       duration: 1000,
     });
@@ -47,7 +47,7 @@ function menuHandler() {
   anime({
     targets: '.header',
     translateX: ['100%', 0],
-    right: ['100px', 0],
+    right: ['6.25rem', 0],
     easing: 'easeInOutQuart',
     duration: 1000,
   });
@@ -73,7 +73,7 @@ function innerHandler() {
     translateY: [16, 0],
     easing: 'easeInOutQuart',
     duration: 1000,
-    delay: (el, i) => 200 * i,
+    delay: (_el: HTMLElement, i: number) => 200 * i,
   });
   anime({
     targets: '.header__inner__logo',
@@ -99,7 +99,7 @@ onMounted(() => {
     opacity: [0, 1],
     easing: 'easeInOutQuart',
     duration: 1000,
-    delay: (el, i) => 1500 + 500 * i,
+    delay: (_el: HTMLElement, i: number) => 1500 + 500 * i,
   });
 });
 </script>
@@ -117,7 +117,7 @@ onMounted(() => {
     <div class="header__inner">
       <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
-          <div class="col-lg-3">
+          <div class="col-md-3 col-10">
             <nav class="header__inner__navigation">
               <ul>
                 <li v-for="item in menuItems" :key="item.text">
@@ -147,15 +147,15 @@ onMounted(() => {
   z-index: 98;
   position: fixed;
   top: 0;
-  right: 100px;
+  right: 6.25rem;
   height: 100vh;
-  width: calc(100% + 100px);
-  transform: translateX(95%);
+  width: calc(100% + 6.25rem);
+  transform: translateX(100%);
   border-left: 1px solid #141414;
 
   &__visible {
     height: 100%;
-    width: 100px;
+    width: 6.25rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -163,7 +163,7 @@ onMounted(() => {
     &__button {
       cursor: pointer;
       display: flex;
-      height: 100px;
+      height: 6.25rem;
       transition: .3s ease;
 
       img {
@@ -184,7 +184,7 @@ onMounted(() => {
     display: flex;
     justify-items: center;
     align-items: center;
-    width: calc(100% - 100px);
+    width: calc(100% - 6.25rem);
     position: relative;
 
     &__close {
