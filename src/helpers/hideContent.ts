@@ -10,7 +10,7 @@ async function hideContent() {
       duration: 1000,
       complete: () => {
         window.scrollTo(0, 0);
-        resolve();
+        resolve(true);
       },
     });
   });

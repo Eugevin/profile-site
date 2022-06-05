@@ -1,7 +1,7 @@
 import anime from 'animejs/lib/anime.es.js';
 
-function observerCallback(entries, observer) {
-  entries.forEach(entry => {
+function observerCallback(entries: any, _observer: any) {
+  entries.forEach((entry: IntersectionObserverEntry) => {
     const entryActivated = entry.target.classList.contains('mock_activated');
     if (entry.isIntersecting && !entryActivated) {
       anime({
