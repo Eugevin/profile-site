@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterView } from 'vue-router';
 import LoaderComponent from '@/components/LoaderComponent.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import CursorComponent from './components/CursorComponent.vue';
@@ -8,6 +8,7 @@ import { onMounted, provide, ref } from 'vue';
 const loaded = ref(false);
 const data = ref({});
 const availableForShow = ref(false);
+const windowWidth = ref(window.innerWidth);
 
 const preloadedImages = ref({});
 
@@ -52,7 +53,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <CursorComponent />
+  <CursorComponent v-if="windowWidth > 768" />
   <LoaderComponent @ended="loaderHandler" :loaded="loaded" v-if="!availableForShow" />
   <HeaderComponent v-if="availableForShow" />
   <main>

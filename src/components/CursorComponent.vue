@@ -7,7 +7,8 @@ const cursorPos = ref([-100, -100]);
 onMounted(() => {
   document.addEventListener('mousemove', e => {
     const {x, y} = e;
-    cursorPos.value = [x, y];
+    // cursorPos.value = [x, y];
+    requestAnimationFrame(() => cursorPos.value = [x, y]);
   });
 });
 </script>
