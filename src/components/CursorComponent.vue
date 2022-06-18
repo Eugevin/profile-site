@@ -6,12 +6,19 @@ const cursorPos = ref([-100, -100, 0]);
 
 onMounted(() => {
   document.addEventListener('mousemove', e => {
-    const { x, y, movementX, movementY } = e;
+    const { target, x, y, movementX, movementY } = e;
     let delta = 1;
-    console.log(movementX, movementY);
 
-    if (Math.abs(movementX) > 5 || Math.abs(movementY) > 5) {
-      delta = 0.5;
+    const curs = getComputedStyle(target).cursor;
+    if (curs === 'pointer') {
+      cursor.value.classList.add('cursor_pointer');
+    } else {
+      cursor.value.classList.remove('cursor_pointer');
+    }
+
+    if (Math.abs(movementX * movementY) > 10) {
+      const firstThree = String(Math.abs(movementX * movementY)).slice(0, 3);
+      delta = Number(firstThree) / 1000;
     }
 
     requestAnimationFrame(() => cursorPos.value = [x, y, delta]);
@@ -35,7 +42,12 @@ onMounted(() => {
   background: #ffffff05;
   border-radius: 100%;
   transition: .3s linear;
+  will-change: transform, border-radius;
   backdrop-filter: invert(1);
+
+  &_pointer {
+    border-radius: 0;
+  }
 
   @media screen and (max-width: $breakpoint-tablet) {
     display: none;    
