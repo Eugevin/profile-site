@@ -2,19 +2,25 @@
 import { onMounted, ref } from 'vue';
 
 const cursor = ref(0);
-const cursorPos = ref([-100, -100]);
+const cursorPos = ref([-100, -100, 0]);
 
 onMounted(() => {
   document.addEventListener('mousemove', e => {
-    const {x, y} = e;
-    // cursorPos.value = [x, y];
-    requestAnimationFrame(() => cursorPos.value = [x, y]);
+    const { x, y, movementX, movementY } = e;
+    let delta = 1;
+    console.log(movementX, movementY);
+
+    if (Math.abs(movementX) > 5 || Math.abs(movementY) > 5) {
+      delta = 0.5;
+    }
+
+    requestAnimationFrame(() => cursorPos.value = [x, y, delta]);
   });
 });
 </script>
 
 <template>
-  <div ref="cursor" class="cursor" :style="`transform: translate(${cursorPos[0] - 21}px, ${cursorPos[1] - 21}px)`"></div>
+  <div ref="cursor" class="cursor" :style="`transform: translate(${cursorPos[0] - 21}px, ${cursorPos[1] - 21}px) scale(${cursorPos[2]})`"></div>
 </template>
 
 <style lang="scss">
