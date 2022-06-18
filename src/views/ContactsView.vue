@@ -17,6 +17,10 @@ function mailHandler() {
   window.open('mailto:eugene.vinokuroff@gmail.com');
 }
 
+function githubHandler() {
+  window.open('https://github.com/Eugevin');
+}
+
 function formDataHandler({ field, value }: { field: string, value: string }) {
   formData.value[field] = value;
 }
@@ -82,6 +86,7 @@ onMounted(() => {
             <h5>Write me in telegram or contact with mail</h5>
             <InputComponent type="button" @change="telegramHandler">Write me</InputComponent>
             <InputComponent type="button" @change="mailHandler">Mail me</InputComponent>
+            <InputComponent type="button" @change="githubHandler">Github</InputComponent>
           </div>
           <h5 class="mock">Get in touch (min for name = 2 symbols, min for message = 50 symbols)</h5>
           <form @submit.prevent="formHandler" class="contacts__form mock">
