@@ -79,6 +79,17 @@ onMounted(() => {
   min-height: 100vh;
   height: 100vh;
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #00000050;
+    z-index: 1;
+  }
+
   &__background {
     position: absolute;
     top: 0;
