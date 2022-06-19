@@ -24,7 +24,7 @@ onMounted(() => {
     <InnerComponent :suptitle="data.about.inner.suptitle" :title="data.about.inner.title" :background="data.about.inner.bg" />
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-5 d-flex justify-content-center">
+        <div class="col-md-5">
           <h2 class="mock">My short story</h2>
         </div>
         <div class="col-md-6">
@@ -48,7 +48,7 @@ onMounted(() => {
     </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-5 d-flex justify-content-center">
+        <div class="col-md-5">
           <h2 class="mock">My services</h2>
         </div>
         <div class="col-md-6">
@@ -65,7 +65,7 @@ onMounted(() => {
     </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-5 d-flex justify-content-center">
+        <div class="col-md-5">
           <h2 class="mock">Why me</h2>
         </div>
         <div class="col-md-6">
@@ -80,7 +80,7 @@ onMounted(() => {
     </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-5 d-flex justify-content-center">
+        <div class="col-md-5">
           <h2 class="mock">My jobs</h2>
         </div>
         <div class="col-md-6">
@@ -95,7 +95,7 @@ onMounted(() => {
     </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-5 d-flex justify-content-center">
+        <div class="col-md-5">
         </div>
         <div class="col-md-6 mock">
           <h3 class="about__contact">Whatever your needs, i’re looking forward to hearing from you</h3>
@@ -112,6 +112,12 @@ onMounted(() => {
 .about {
   position: relative;
   padding-bottom: 6.25rem;
+
+  h2 {
+    text-align: center;
+    position: sticky;
+    top: 1rem;
+  }
 
   &__story {
     li:not(:first-of-type) {
@@ -200,13 +206,10 @@ onMounted(() => {
   }
 
   @media screen and (max-width: $breakpoint-phone) {
-    .col-md-5 {
-      justify-content: flex-start !important;
-      
-      h2 {
-        margin-bottom: 2rem;
-      }
-    }    
+    h2 {
+      text-align: left;
+      margin-bottom: 2rem;
+    }
   }
 }
 </style>
