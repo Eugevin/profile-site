@@ -10,7 +10,7 @@ const router = useRouter();
 
 async function projectHandler(projectName: string) {
   await hideContent();
-  router.push(`/project?name=${projectName}`);
+  router.push(`/projects/project?name=${projectName}`);
 }
 
 onMounted(() => {
