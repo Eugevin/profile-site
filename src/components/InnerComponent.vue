@@ -26,7 +26,7 @@ onMounted(() => {
     opacity: [0, 1],
     easing: "easeOutExpo",
     duration: 1000,
-    delay: (el, i) => 1500 + 20 * i
+    delay: (el, i) => 1000 + 20 * i
   });
   anime({
     targets: '.inner__suptitle .letter',
@@ -34,7 +34,7 @@ onMounted(() => {
     opacity: [0, 1],
     easing: "easeOutExpo",
     duration: 1000,
-    delay: (el, i) => 1000 + 20 * i
+    delay: (el, i) => 500 + 20 * i
   });
   anime({
     targets: '.inner__logo',
@@ -42,7 +42,7 @@ onMounted(() => {
     opacity: [0, 1],
     easing: "easeOutExpo",
     duration: 1000,
-    delay: 2000
+    delay: 1500
   });
 });
 </script>
