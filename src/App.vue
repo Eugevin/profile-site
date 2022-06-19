@@ -49,6 +49,8 @@ onMounted(async () => {
   await preloadImages();
 
   loaded.value = true;
+
+  console.info('%c // What do u want to see here, my yung cool-hacker? \n // Write me if u can https://t.me/eugevin/', 'color: green; font-size: 1rem');
 });
 </script>
 
