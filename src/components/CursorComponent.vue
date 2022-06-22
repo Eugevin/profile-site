@@ -6,7 +6,7 @@ const cursorPos = ref([-100, -100, 0]);
 
 onMounted(() => {
   document.addEventListener('mousemove', e => {
-    const { target, x, y, movementX, movementY } = e;
+    const { target, x, y } = e;
     let delta = 1;
 
     const curs = getComputedStyle(target).cursor;
@@ -14,11 +14,6 @@ onMounted(() => {
       cursor.value.classList.add('cursor_pointer');
     } else {
       cursor.value.classList.remove('cursor_pointer');
-    }
-
-    if (Math.abs(movementX * movementY) > 10) {
-      const firstThree = String(Math.abs(movementX * movementY)).slice(0, 3);
-      delta = Number(firstThree) / 1000;
     }
 
     requestAnimationFrame(() => cursorPos.value = [x, y, delta]);
@@ -46,7 +41,8 @@ onMounted(() => {
   backdrop-filter: invert(1);
 
   &_pointer {
-    border-radius: 0;
+    height: 75px;
+    width: 75px;
   }
 
   @media screen and (max-width: $breakpoint-tablet) {
