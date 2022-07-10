@@ -10,7 +10,7 @@ const data = ref({});
 const availableForShow = ref(false);
 const windowWidth = ref(window.innerWidth);
 
-const preloadedImages = ref({});
+const preloadedImages: any = ref({});
 
 provide('data', data);
 

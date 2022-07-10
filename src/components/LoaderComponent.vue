@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { inject, onMounted, ref } from 'vue';
 
-const anime = inject('anime');
+const anime: any = inject('anime');
 const loader = ref(0);
 const loaderBox = ref(0);
 const props = defineProps(['loaded']);
 const emit = defineEmits(['ended']);
 
 function hideLoader() {
-  const loaderAnimation = anime({
+  anime({
     targets: '.loader',
     translateY: [0, '100%'],
     easing: 'easeInOutQuart',

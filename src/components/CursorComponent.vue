@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 
-const cursor = ref(0);
+const cursor: any = ref(0);
 const cursorPos = ref([-100, -100, 0]);
 
 onMounted(() => {
   document.addEventListener('mousemove', e => {
-    const { target, x, y } = e;
+    const { target, x, y } = e as any;
     let delta = 1;
 
     const curs = getComputedStyle(target).cursor;

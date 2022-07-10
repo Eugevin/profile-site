@@ -44,7 +44,7 @@ async function formHandler() {
         opacity: [1, 0],
         easing: 'easeInOutQuart',
         duration: 300,
-        delay: (el, i) => 100 * i,
+        delay: (el: HTMLElement, i: number) => 100 * i,
       });
       anime({
         targets: '.contacts__form__recieve',

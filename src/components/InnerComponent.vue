@@ -2,14 +2,14 @@
 import { inject, onMounted } from 'vue';
 
 const anime: any = inject('anime');
-const data = inject('data');
+const data: any = inject('data');
 defineProps(['background', 'suptitle', 'title'])
 
 onMounted(() => {
-  const title = document.querySelector('.inner__title');
+  const title = document.querySelector('.inner__title') as any;
   title.innerHTML = title.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
-  const suptitle = document.querySelector('.inner__suptitle');
+  const suptitle = document.querySelector('.inner__suptitle') as any;
   suptitle.innerHTML = suptitle.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
   anime({
@@ -26,7 +26,7 @@ onMounted(() => {
     opacity: [0, 1],
     easing: "easeOutExpo",
     duration: 1000,
-    delay: (el, i) => 1000 + 20 * i
+    delay: (el: HTMLElement, i: number) => 1000 + 20 * i
   });
   anime({
     targets: '.inner__suptitle .letter',
@@ -34,7 +34,7 @@ onMounted(() => {
     opacity: [0, 1],
     easing: "easeOutExpo",
     duration: 1000,
-    delay: (el, i) => 500 + 20 * i
+    delay: (el: HTMLElement, i: number) => 500 + 20 * i
   });
   anime({
     targets: '.inner__logo',
