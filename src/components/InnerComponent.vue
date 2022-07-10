@@ -77,7 +77,6 @@ onMounted(() => {
   justify-content: flex-end;
   position: relative;
   min-height: 100vh;
-  height: 100vh;
 
   &::before {
     content: "";
@@ -107,6 +106,10 @@ onMounted(() => {
 
   .container-fluid {
     z-index: 1;
+  }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    min-height: 50vh;
   }
 
   @media screen and (max-width: $breakpoint-phone) {
